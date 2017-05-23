@@ -1,2 +1,3 @@
 # morphium
-Utility functions for scrapers hosted on morph.io
+
+Toolkit for scrapers on morph.io
