@@ -68,4 +68,4 @@ class Archive(object):
                          ExtraArgs=args)
         return self.client.generate_presigned_url('get_object',
                                                   Params=copy_source,
-                                                  ExpiresIn=86400)
+                                                  ExpiresIn=0)
