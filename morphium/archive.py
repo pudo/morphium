@@ -66,6 +66,4 @@ class Archive(object):
         copy_source = {'Key': key_name, 'Bucket': self.bucket}
         self.client.copy(copy_source, self.bucket, copy_name,
                          ExtraArgs=args)
-        return self.client.generate_presigned_url('get_object',
-                                                  Params=copy_source,
-                                                  ExpiresIn=0)
+        return 'http://%s/%s' & (self.bucket, key_name)
