@@ -66,4 +66,4 @@ class Archive(object):
         copy_source = {'Key': key_name, 'Bucket': self.bucket}
         self.client.copy(copy_source, self.bucket, copy_name,
                          ExtraArgs=args)
-        return 'http://%s/%s' & (self.bucket, key_name)
+        return 'http://%s/%s' % (self.bucket, key_name)

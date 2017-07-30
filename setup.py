@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='morphium',
-    version='0.1.2',
+    version='0.1.3',
     description="Tools for scrapers on morph.io",
     long_description="",
     classifiers=[
