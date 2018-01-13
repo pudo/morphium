@@ -1,6 +1,7 @@
 import logging
 import warnings
 from morphium.archive import env, Archive
+from morphium.ia import InternetArchive
 
 warnings.simplefilter("ignore")
 
@@ -10,4 +11,4 @@ logging.getLogger('requests').setLevel(logging.WARNING)
 logging.getLogger('botocore').setLevel(logging.WARNING)
 logging.getLogger('alembic').setLevel(logging.WARNING)
 
-__all__ = [env, Archive]
+__all__ = [env, Archive, InternetArchive]
