@@ -16,9 +16,10 @@ class InternetArchive(object):
     scraper has generated a file which needs to be backed up to a
     bucket."""
 
-    def __init__(self, item=None):
+    def __init__(self, item=None, prefix=None):
         self.tag = datetime.utcnow().date().isoformat()
         self.item = item or env('ia_item')
+        self.prefix = prefix
         self.access_key = env('ia_access_key_id')
         self.secret_key = env('ia_secret_access_key')
 
@@ -57,6 +58,8 @@ class InternetArchive(object):
         date_name = os.path.join(self.tag, file_name)
         copy_name = os.path.join(TAG_LATEST, file_name)
         for key_name in (date_name, copy_name):
+            if self.prefix is not None:
+                key_name = os.path.join(self.prefix, key_name)
             log.info("Uploading [%s]: %s", self.item, key_name)
             key = self.bucket.get_key(key_name)
             if key is None:
